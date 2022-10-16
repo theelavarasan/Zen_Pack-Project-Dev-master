@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -35,19 +36,29 @@ public class FeaturedListServiceImpl implements FeaturedListService  {
         return repository.findByKeyword(keyword);
     }
 
-    @Override
-    public FeaturedList updateList(FeaturedList list, int id) {
-        FeaturedList existingList = repository.findById(id).get();
-        existingList.setFeatureName(list.getFeatureName());
-        existingList.setFeatureUrl(list.getFeatureUrl());
-        existingList.setCreatedTime(list.getCreatedTime());
-        existingList.setCreatedBy(list.getCreatedBy());
-        return repository.save(existingList);
-    }
+//    @Override
+//    public FeaturedList updateList(FeaturedList list, int id) {
+//        FeaturedList existingList = repository.findById(id).get();
+//        existingList.setFeatureName(list.getFeatureName());
+//        existingList.setFeatureUrl(list.getFeatureUrl());
+//        existingList.setCreatedTime(list.getCreatedTime());
+//        existingList.setCreatedBy(list.getCreatedBy());
+//        return repository.save(existingList);
+//    }
 
-    public void deleteMovie(int id) {
+    public void deleteList(int id) {
         FeaturedList existingList=repository.findById(id).get();
         repository.delete(existingList);
+    }
+
+    @Override
+    public Optional<FeaturedList> getListById(int listId) {
+        return repository.findById(listId);
+    }
+
+    @Override
+    public FeaturedList updatedList(FeaturedList updatedList) {
+        return repository.save(updatedList);
     }
 
 

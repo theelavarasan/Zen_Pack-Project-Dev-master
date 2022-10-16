@@ -1,6 +1,9 @@
 package com.ZenPack.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,17 +13,22 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "Featured_List")
+@Table(name = "Features")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class FeaturedList {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    @Column(name = "feature_name")
-    private String featureName;
+    private Integer id;
+    @Column(name = "resource_id")
+    private String featureId;
+    @Column(name = "features")
+    private String text;
+    @Column(name = "icon")
+    private String icon;
+    @Column(name = "is_setting_menu")
+    private Boolean isSettingMenu;
     @Column(name = "feature_url")
     private String featureUrl;
-    @Column(name = "created_time")
-    private LocalDate createdTime;
-    @Column(name = "created_by")
-    private String createdBy;
 }

@@ -5,11 +5,10 @@ import com.ZenPack.model.ZenPack;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface FeaturedListService {
 
-////    ResponseEntity<ZenPack> saveZenPack(ZenPack zenPack);
-//
     FeaturedList save(FeaturedList featuredList);
 
     List<FeaturedList> findAllList();
@@ -17,10 +16,13 @@ public interface FeaturedListService {
     //Get Feature_list by keyword
     List<FeaturedList> findByKeyword(String keyword);
 
-    FeaturedList updateList(FeaturedList list, int id);
+//    FeaturedList updateList(FeaturedList list, int id);
 
-    void deleteMovie(int id);
-//
-//
-////    ResponseEntity<FeaturedList> saveFeauturedList(FeaturedList list);
+    void deleteList(int id);
+
+    FeaturedList updatedList(FeaturedList updatedList);
+
+    Optional<FeaturedList> getListById(int id);
+
+
 }

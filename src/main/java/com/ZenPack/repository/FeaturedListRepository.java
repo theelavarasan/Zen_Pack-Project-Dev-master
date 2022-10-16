@@ -14,7 +14,7 @@ import java.util.List;
 public interface FeaturedListRepository extends JpaRepository<FeaturedList, Integer> {
 
     //Custom Query
-    @Query("SELECT p FROM FeaturedList p WHERE p.featureName LIKE %:keyword%" )
+    @Query("SELECT p FROM FeaturedList p WHERE p.text LIKE %:keyword%" )
     List<FeaturedList> findByKeyword(String keyword);
 
 }
