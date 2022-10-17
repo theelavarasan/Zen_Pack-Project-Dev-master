@@ -2,7 +2,7 @@ package com.ZenPack.FeaturesTest;
 
 import com.ZenPack.model.FeaturedList;
 import com.ZenPack.repository.FeaturedListRepository;
-import com.ZenPack.service.FeaturedListServiceImpl;
+import com.ZenPack.service.Impl.FeaturedListServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

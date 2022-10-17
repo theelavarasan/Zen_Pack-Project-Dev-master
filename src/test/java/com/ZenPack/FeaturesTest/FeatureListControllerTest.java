@@ -3,14 +3,17 @@ package com.ZenPack.FeaturesTest;
 import com.ZenPack.controller.FeatureListController;
 import com.ZenPack.model.FeaturedList;
 import com.ZenPack.repository.FeaturedListRepository;
-import com.ZenPack.service.FeaturedListServiceImpl;
+import com.ZenPack.service.Impl.FeaturedListServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -30,7 +33,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
+@WebMvcTest(FeatureListController.class)
+//@SpringBootTest
+//@DataJpaTest
+//@AutoConfigureTestDatabase
 public class FeatureListControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -106,27 +112,6 @@ public class FeatureListControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.size()",CoreMatchers.is(featuredListList.size())));
     }
-
-//    @Test
-//    void shouldUpdateList() throws Exception {
-//        FeaturedList list=new FeaturedList();
-//        list.setId(1);
-//        list.setFeatureId("#");
-//        list.setText("Project Management");
-//        list.setFeatureUrl(null);
-//        list.setIcon("#");
-//        list.setIsSettingMenu(true);
-//        when(service.updatedList(any(FeaturedList.class),anyInt())).thenReturn(list);
-//        this.mockMvc.perform(put("/api/v1/update_list/{id}",2)
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .contentType(objectMapper.writeValueAsString(list)))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.featureId", CoreMatchers.is(list.getFeatureId())))
-//                .andExpect(jsonPath("$.text", CoreMatchers.is(list.getText())))
-//                .andExpect(jsonPath("$.icon", CoreMatchers.is(list.getIcon().toString())))
-//                .andExpect(jsonPath("$.isSettingMenu", CoreMatchers.is(list.getIsSettingMenu())))
-//                .andExpect(jsonPath("$.featureUrl", CoreMatchers.is(list.getFeatureUrl())));
-//    }
 
 
     @Test

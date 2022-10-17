@@ -1,4 +1,4 @@
-package com.ZenPack.service;
+package com.ZenPack.service.Services;
 
 import com.ZenPack.model.FeaturedList;
 import com.ZenPack.model.ZenPack;

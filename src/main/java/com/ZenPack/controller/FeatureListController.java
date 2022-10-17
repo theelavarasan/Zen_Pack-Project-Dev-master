@@ -1,7 +1,7 @@
 package com.ZenPack.controller;
 
 import com.ZenPack.model.FeaturedList;
-import com.ZenPack.service.FeaturedListServiceImpl;
+import com.ZenPack.service.Impl.FeaturedListServiceImpl;
 import io.swagger.annotations.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;

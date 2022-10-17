@@ -1,7 +1,8 @@
-package com.ZenPack.service;
+package com.ZenPack.service.Impl;
 
 import com.ZenPack.model.FeaturedList;
 import com.ZenPack.repository.FeaturedListRepository;
+import com.ZenPack.service.Services.FeaturedListService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class FeaturedListServiceImpl implements FeaturedListService  {
+public class FeaturedListServiceImpl implements FeaturedListService {
 
 
     @Autowired
